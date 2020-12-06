@@ -6,16 +6,14 @@ import {
 } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import interfaces from 'src/interfaces';
-
-console.log('interfaces', interfaces);
+import RoutesInterface from '../interfaces';
 
 function Navigation (auth: any, routes: any) {
   return (
     <Router>
       <Switch>
         {
-          routes.map((route: any) => {
+          routes.map((route: RoutesInterface) => {
             return (
               <Route
                 exact={route.exact}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-import Navigation from 'src/navigation';
+import Navigation from '../navigation';
 
 function AuthLayout () {
   return (

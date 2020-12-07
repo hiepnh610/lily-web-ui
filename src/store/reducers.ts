@@ -1,3 +1,7 @@
-const reducer = {};
+import { combineReducers } from '@reduxjs/toolkit';
 
-export default reducer;
+const rootReducer = combineReducers({});
+
+export type RootState = ReturnType<typeof rootReducer>;
+
+export default rootReducer;

@@ -6,7 +6,7 @@ const routes = [
     exact: true,
     component: LoginPage,
     name: 'Login',
-    path: 'login',
+    path: '/',
   },
 ];
 

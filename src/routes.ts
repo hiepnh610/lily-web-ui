@@ -1,4 +1,4 @@
-import LoginPage from 'src/pages/login';
+import LoginPage from 'src/pages/Login';
 
 const routes = [
   {

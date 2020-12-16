@@ -1,18 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 
 import AuthLayout from './layout/authLayout';
 import GuessLayout from './layout/guessLayout';
 
-function App (props: any) {
-  console.log('props', props);
+import { RootState } from './store/reducers';
+
+function App () {
+  const { auth } = useSelector((state: RootState) => state);
+
   return (
-    true ? <AuthLayout /> : <GuessLayout />
+    auth.isSignedIn ? <AuthLayout /> : <GuessLayout />
   );
 }
-
-App.propTypes = {
-  // auth: PropTypes.object.isRequired,
-};
 
 export default App;

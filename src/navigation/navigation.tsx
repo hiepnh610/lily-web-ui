@@ -1,14 +1,20 @@
 import { Switch, Route } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 
 import RoutesInterface from '../interfaces';
 import routes from '../routes';
 
+import { RootState } from '../store/reducers';
+
 function MainNavigation () {
+  const { auth } = useSelector((state: RootState) => state);
+
   return (
     <Switch>
       {
-        routes.map((route: RoutesInterface) => {
+        routes
+        .filter((route) => route.auth === auth.isSignedIn)
+        .map((route: RoutesInterface) => {
           return (
             <Route
               exact={route.exact}
@@ -23,9 +29,5 @@ function MainNavigation () {
     </Switch>
   );
 }
-
-MainNavigation.propTypes = {
-  // routes: PropTypes.array.isRequired,
-};
 
 export default MainNavigation;

@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 
+import MainNavigation from '../navigation';
 import MainHeader from '../components/header';
 
 function GuessLayout () {
@@ -8,7 +9,7 @@ function GuessLayout () {
     <Router>
       <MainHeader />
 
-      <section>GuessLayout</section>
+      <MainNavigation />
     </Router>
   );
 }

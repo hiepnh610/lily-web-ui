@@ -1,14 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import AuthLayout from './layout/authLayout';
 import GuessLayout from './layout/guessLayout';
 
-function App () {
+function App (props: any) {
+  console.log('props', props);
   return (
-    <AuthLayout />
-
-    // <GuessLayout />
+    true ? <AuthLayout /> : <GuessLayout />
   );
 }
+
+App.propTypes = {
+  // auth: PropTypes.object.isRequired,
+};
 
 export default App;

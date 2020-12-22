@@ -1,17 +1,20 @@
-import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 
-import MainNavigation from '../navigation';
-import MainHeader from '../components/header';
-
-function GuessLayout () {
+function GuessLayout ({ children }) {
   return (
-    <Router>
-      <MainHeader />
-
-      <MainNavigation />
-    </Router>
+    <>{children}</>
   );
-}
+};
 
-export default GuessLayout;
+function GuessLayoutRoute ({component: Component, ...rest}) {
+  return (
+    <Route {...rest} render={matchProps => (
+      <GuessLayout>
+        <Component {...matchProps} />
+      </GuessLayout>
+    )} />
+  )
+};
+
+export default GuessLayoutRoute;

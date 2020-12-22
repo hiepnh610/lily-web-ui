@@ -1,24 +1,33 @@
-import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import React, { Component } from 'react';
+import { Route, RouteProps } from 'react-router-dom';
 
-import MainNavigation from '../navigation';
 import MainHeader from '../components/header';
 import MainSideBar from '../components/sideBar';
 
-function AuthLayout () {
+const AuthLayout: React.FC<{}> = ({ children }) => {
   return (
-    <Router>
+    <>
       <MainHeader />
 
       <section className="flex h-screen">
         <MainSideBar />
 
         <main className="w-5/6 bg-green-600">
-          <MainNavigation />
+          {children}
         </main>
       </section>
-    </Router>
+    </>
   );
-}
+};
 
-export default AuthLayout;
+const AuthLayoutRoute: React.FC<RouteProps> = ({component: Component, ...rest}) => {
+  return (
+    <Route {...rest} render={matchProps => (
+      <AuthLayout>
+        <Component {...matchProps} />
+      </AuthLayout>
+    )} />
+  )
+};
+
+export default AuthLayoutRoute;

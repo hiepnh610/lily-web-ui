@@ -1,6 +1,8 @@
 function LoginPage () {
   return (
-    <div>Login</div>
+    <div className="container mx-auto">
+      <div>Login1235</div>
+    </div>
   );
 };
 
